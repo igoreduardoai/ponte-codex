@@ -22,7 +22,7 @@ Fixture mode ignores provider keys, sends no Twitch requests, and displays
 `FIXTURE / TEST CHAT · SYNTHETIC`. Emotes appear as text in fixture mode to
 avoid CDN requests. No personal messages are used.
 
-## Live setup (Groq exercised; Twitch OAuth validated)
+## Live setup (Twitch + Groq integration exercised)
 
 1. Register a public Twitch application yourself in the Twitch developer
    console. No client secret is used. Copy `.env.example` to `.env`.
@@ -46,7 +46,9 @@ the emote spelling. Unknown language stays unchanged rather than guessing.
 
 `!ponte` reports status, `!ponte off` opts your own messages out, and
 `!ponte on` opts back in. Helix sends replies; replies are limited to one per
-user per ten seconds. The bot's own messages are ignored to prevent feedback loops.
+user per ten seconds. Generated bot replies are ignored by known message IDs
+and text, including replies arriving before Helix returns. The broadcaster's
+normal chat still translates when broadcaster and bot share one account.
 Hide removes a line, Pause clears that user's lines and stops their future
 translations; Retomar resumes them. Settings and the last 100 lines live in
 memory only. Every 60 seconds Groq can summarize each language's topics for
@@ -99,12 +101,17 @@ availability depend on the provider; zero cost is guaranteed only for the
 offline fixture. No payment or paid resource has been configured.
 
 Real Groq PT→EN, EN→PT and bilingual topic recap were exercised with synthetic
-messages; evidence is in `docs/groq-smoke-report.json`. This does not validate
-the Twitch chat integration or OBS. The Twitch OAuth token was validated for
-`igoreduardoai`; see `docs/twitch-auth-report.json`. Real refresh, reconnect,
-EventSub, moderation, Helix replies,
-OBS rendering and a 15-minute live session remain pending. Browser inspection
-confirmed transparent computed backgrounds on the overlay root and body.
+messages; evidence is in `docs/groq-smoke-report.json`. The real Twitch/Groq
+integration was then exercised in the explicitly authorized `igoreduardoai`
+channel with synthetic messages only: EventSub subscriptions, chat delivery,
+PT↔EN translation, HTTP SSE, Helix replies, Hide/Pause, opt-out/in, recap,
+client-disconnect recovery and token refresh passed. The refreshed token was
+reloaded from disk and validated. See `docs/twitch-live-report.json`.
+The browser loaded a real Kappa image from Twitch's CDN and confirmed alpha
+transparency. No broadcast was started. Real Twitch deletion/timeout/clear
+notifications, server-directed reconnect handoff, OBS rendering and a
+15-minute broadcast remain unexercised. Four chat subscriptions were created;
+this does not count as exercising their three moderation notification types.
 Current blockers and evidence are recorded in `docs/integration-status.md`.
 No migration applies: this is a fresh in-memory application. No third-party
 code, package or repository was installed or executed. Before adding one,
@@ -129,3 +136,11 @@ submission. No contest eligibility, account ownership, or session ID is fabricat
   performs bounded retries after HTTP 429. Reports include failures.
 - `npm run session:id`: actual current Codex session identity, without changing
   a global status-line configuration. Evidence: `docs/codex-session.json`.
+
+- `npm run test:twitch -- --channel igoreduardoai`: **sends public synthetic
+  messages** in that explicitly selected channel and tests the real stack.
+  The configured numeric broadcaster must resolve to that login before any
+  message is sent. Unrelated chat is filtered before Groq calls. Add `--preview`
+  to keep the local overlay on port 8788 for 90 seconds after the checks.
+  The test ends its connection; no stream is started. The report records
+  failed or unexercised checks rather than treating them as successful.

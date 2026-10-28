@@ -16,6 +16,7 @@
     "eval:50": "node --env-file-if-exists=.env src/eval.js data/eval-50.jsonl docs/eval-50-report.json",
     "session:id": "node scripts/session-id.js",
     "check:live": "node --env-file-if-exists=.env scripts/live-preflight.js",
-    "test:groq": "node --env-file-if-exists=.env scripts/groq-smoke.js"
+    "test:groq": "node --env-file-if-exists=.env scripts/groq-smoke.js",
+    "test:twitch": "node --env-file-if-exists=.env scripts/twitch-smoke.js"
   }
 }

@@ -1,22 +1,37 @@
 # Situação da validação · Ponte · 28/10/2026
 
-Tudo permanece no projeto local `/Users/louisxiv/ponte`. Nenhum push,
-publicação, inscrição ou alteração no Cortexa foi realizado.
+Código, credenciais e evidências ficam em `/Users/louisxiv/ponte`.
+Não houve push, publicação do código, inscrição em concurso ou alteração
+no Cortexa. Mensagens sintéticas foram enviadas no canal Twitch autorizado;
+nenhuma transmissão foi iniciada.
 
 ## Os quatro itens solicitados
 
-1. **Groq real: executado. Twitch: OAuth validado, chat pendente.** `npm run test:groq`
-   passou com `openai/gpt-oss-20b`: PT→EN, EN→PT e resumo bilíngue.
-   Emotes, menção, URL e emoji usados no teste foram preservados.
-   Fallback offline é explicitamente rejeitado como sucesso neste teste.
-   [Saídas reais](groq-smoke-report.json).
-   O token Twitch foi validado de verdade para `igoreduardoai`, com
-   `user:read:chat` e `user:write:chat`; o Client ID confere. O ID da conta
-   foi obtido da Twitch e salvo no `.env`, sem expor o token.
-   [Evidência OAuth](twitch-auth-report.json).
-   Falta escolher o canal para definir `TWITCH_BROADCASTER_ID`. Nenhuma
-   inscrição EventSub ou mensagem foi criada nesta validação.
-   O [preflight](live-preflight.json) só verifica configuração, sem rede.
+1. **Twitch + Groq reais: fluxo principal exercitado.** OAuth, quatro
+   inscrições EventSub, mensagens PT↔EN, tradução Groq, entrega HTTP SSE ao
+   overlay, resposta `!ponte` pela Helix, Hide/Pause, opt-out/in, recap,
+   recuperação após desconexão do cliente e renovação do token passaram:
+   **12 verificações reais**, no canal `igoreduardoai` autorizado pelo usuário.
+   O token renovado foi relido do disco e validado, com arquivo em modo 0600.
+   [Relatório real](twitch-live-report.json), [OAuth](twitch-auth-report.json).
+   O primeiro teste revelou um bug: mensagens do próprio streamer eram
+   descartadas quando streamer e bot usavam a mesma conta. [Falha preservada](twitch-baseline-report.json).
+   Corrigi a filtragem para ignorar apenas respostas conhecidas do bot,
+   incluindo a corrida em que o EventSub chega antes da resposta Helix.
+   A conferência manual da primeira rodada também encontrou o aviso de
+   ausência de mensagens em inglês no campo PT. Localizei esse aviso no
+   pipeline e acrescentei `engine` ao recap para distinguir Groq de fallback.
+   Essa rodada está em [tentativa anterior](twitch-live-attempt-1.json);
+   a execução final repetiu as 12 verificações e conferiu o texto PT corrigido.
+   A repetição corrigida usou dez entradas de chat/comandos sintéticos,
+   além das respostas automáticas. Chat alheio foi filtrado antes de chamar
+   Groq. A fonte do tradutor e o conjunto dos 50 exemplos não mudaram.
+   No navegador, o overlay mostrou `LIVE TWITCH TEST · SYNTHETIC` e carregou
+   Kappa da CDN da Twitch (`naturalWidth=50`), com raiz e corpo transparentes.
+   [Verificação do navegador](twitch-browser-report.json),
+   [captura](twitch-live-overlay.png).
+   As conexões de teste foram encerradas. O [preflight](live-preflight.json)
+   agora indica configuração presente; ele sozinho não valida um provedor.
 2. **OBS: não executado.** Não foi encontrado nas pastas padrão, no
    inventário de aplicativos ou na busca Spotlight por `OBS.app`.
    Nenhuma instalação foi tentada: a instrução do usuário exige revisão
@@ -82,13 +97,18 @@ de desenvolvimento e validação independente.
 
 ## Execução e pendências
 
-`npm test`: **25 testes passaram**, incluindo rejeição de fallback como
+`npm test`: **29 testes passaram**, incluindo rejeição de fallback como
 sucesso real, duplicatas, emotes repetidos, fragmentos, identidade da sessão,
 e espera limitada após HTTP 429. Não foi necessária migração de dados.
 
-Ainda não exercitados: renovação Twitch real, EventSub real,
-respostas Helix, moderação real, reconexão real, renderização de emotes CDN,
-OBS e live de 15 minutos. Dependem de credenciais/configuração Twitch,
-canal autorizado e acesso ao OBS com a validação de instalação exigida.
-Os mocks não contam como execução desses itens. Nenhum novo pacote,
-imagem ou aplicativo de terceiros foi instalado.
+Ainda não exercitados: os eventos reais de exclusão, timeout e limpeza
+na Twitch; a transferência `session_reconnect` pedida pelo servidor Twitch;
+OBS e uma transmissão de 15 minutos. As três inscrições de moderação foram
+aceitas, mas nenhuma ação remota de moderação foi provocada. O token tem
+somente leitura/envio de chat e há uma única conta de teste: falta acesso
+apropriado para gerar essas ações de forma controlada. A transferência
+pedida pelo servidor não foi provocada pela Twitch durante o teste; o teste
+exercitou reconexão após fechamento do cliente. OBS continua ausente e sua
+instalação exige a revisão e VM descartável definidas pelo usuário.
+Nenhuma transmissão foi iniciada. Nenhum pacote, imagem ou aplicativo novo
+de terceiros foi instalado. Os mocks não contam como execução desses itens.

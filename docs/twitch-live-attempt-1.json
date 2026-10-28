@@ -1,0 +1,252 @@
+{
+  "startedAt": "2026-10-28T14:31:44.055Z",
+  "channel": "igoreduardoai",
+  "publicInputs": [
+    {
+      "id": "948a3c4e-c7ad-4506-8d96-66ae00a1f010",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] pt salve @igoreduardoai, bom jogo Kappa"
+    },
+    {
+      "id": "e6fd8b3f-d0cf-401e-895f-dae3c85a44a4",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] en hello, good game LUL 🎮"
+    },
+    {
+      "id": "f9dec124-f8fa-4d72-85a0-8ea3aa0677df",
+      "text": "!ponte"
+    },
+    {
+      "id": "16504dc2-4cc3-478f-b007-a8954f093a2b",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] paused oi bom jogo"
+    },
+    {
+      "id": "71eede77-2496-40e7-9b83-4b164cf1cc6c",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] resumed oi bom jogo"
+    },
+    {
+      "id": "514c6129-c1c6-4e34-ba3d-4603661d0620",
+      "text": "!ponte off"
+    },
+    {
+      "id": "0fefa6c7-beca-42cb-ac10-e151b6dc12f8",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] opted-out oi bom jogo"
+    },
+    {
+      "id": "b140f92c-bc2e-4314-9d64-92adefe9b24c",
+      "text": "!ponte on"
+    },
+    {
+      "id": "ed703a39-005c-4902-8bf1-0d2510f771a5",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] opted-in oi bom jogo"
+    },
+    {
+      "id": "c6ebe098-9305-49de-a845-169449ec5efe",
+      "text": "[PONTE TEST / SYNTHETIC 1793197904055] reconnect bom jogo Kappa"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Four real EventSub subscriptions",
+      "status": "PASS",
+      "types": [
+        "channel.chat.message",
+        "channel.chat.message_delete",
+        "channel.chat.clear_user_messages",
+        "channel.chat.clear"
+      ]
+    },
+    {
+      "name": "PT→EN through Helix → EventSub → Groq → pipeline",
+      "status": "PASS",
+      "id": "948a3c4e-c7ad-4506-8d96-66ae00a1f010",
+      "original": "[PONTE TEST / SYNTHETIC 1793197904055] pt salve @igoreduardoai, bom jogo Kappa",
+      "translated": "[PONTE TEST / SYNTHETIC 1793197904055] pt hey @igoreduardoai, good game Kappa",
+      "engine": "groq"
+    },
+    {
+      "name": "EN→PT through real services",
+      "status": "PASS",
+      "id": "e6fd8b3f-d0cf-401e-895f-dae3c85a44a4",
+      "original": "[PONTE TEST / SYNTHETIC 1793197904055] en hello, good game LUL 🎮",
+      "translated": "[PONTE TEST / SYNTHETIC 1793197904055] en salve, gg LUL 🎮",
+      "engine": "groq"
+    },
+    {
+      "name": "Translated messages delivered over HTTP SSE to overlay",
+      "status": "PASS"
+    },
+    {
+      "name": "Real Twitch emote fragments preserved",
+      "status": "PASS",
+      "emote": "LUL",
+      "emoteId": "425618"
+    },
+    {
+      "name": "!ponte reply sent via Helix, received and filtered",
+      "status": "PASS",
+      "replyId": "b8d77f0c-16be-432e-a2f7-5a1bdb9c6e22",
+      "text": "@igoreduardoai Ponte: ON — PT ↔ EN"
+    },
+    {
+      "name": "Hide removes a real translated line through local HTTP panel action",
+      "status": "PASS"
+    },
+    {
+      "name": "Pause blocks received real chat, resume restores translation",
+      "status": "PASS",
+      "pausedId": "16504dc2-4cc3-478f-b007-a8954f093a2b",
+      "resumedId": "71eede77-2496-40e7-9b83-4b164cf1cc6c"
+    },
+    {
+      "name": "!ponte off/on operates on real EventSub messages",
+      "status": "PASS",
+      "optedOutMessageId": "0fefa6c7-beca-42cb-ac10-e151b6dc12f8",
+      "optedInMessageId": "ed703a39-005c-4902-8bf1-0d2510f771a5"
+    },
+    {
+      "name": "Groq bilingual recap delivered to overlay",
+      "status": "PASS",
+      "pt": "no recent messages",
+      "en": "Portuguese speakers are saying 'oi bom jogo'."
+    },
+    {
+      "name": "Client disconnect reconnects, re-subscribes and receives new chat",
+      "status": "PASS",
+      "messageId": "c6ebe098-9305-49de-a845-169449ec5efe"
+    },
+    {
+      "name": "Real Twitch token refresh persisted and validated",
+      "status": "PASS",
+      "accessTokenChanged": true,
+      "refreshTokenChanged": true,
+      "tokenValuesRecorded": false
+    }
+  ],
+  "transport": [
+    {
+      "state": "connecting",
+      "at": "2026-10-28T14:31:44.121Z"
+    },
+    {
+      "state": "ready",
+      "subscriptions": [
+        "channel.chat.message",
+        "channel.chat.message_delete",
+        "channel.chat.clear_user_messages",
+        "channel.chat.clear"
+      ],
+      "transfer": false,
+      "at": "2026-10-28T14:31:44.753Z"
+    },
+    {
+      "state": "disconnected",
+      "at": "2026-10-28T14:32:02.230Z"
+    },
+    {
+      "state": "connecting",
+      "at": "2026-10-28T14:32:05.232Z"
+    },
+    {
+      "state": "ready",
+      "subscriptions": [
+        "channel.chat.message",
+        "channel.chat.message_delete",
+        "channel.chat.clear_user_messages",
+        "channel.chat.clear"
+      ],
+      "transfer": false,
+      "at": "2026-10-28T14:32:05.935Z"
+    }
+  ],
+  "scope": "Real Twitch and Groq, synthetic messages only. Unrelated chat is filtered before provider calls. No broadcast is started.",
+  "address": "http://127.0.0.1:8788",
+  "status": "PASS",
+  "visibleLines": [
+    {
+      "id": "71eede77-2496-40e7-9b83-4b164cf1cc6c",
+      "user": "1596471405",
+      "name": "igoreduardoai",
+      "fragments": [
+        {
+          "type": "text",
+          "text": "[PONTE TEST / SYNTHETIC 1793197904055] resumed oi bom jogo",
+          "cheermote": null,
+          "emote": null,
+          "mention": null,
+          "gif": null
+        }
+      ],
+      "original": "[PONTE TEST / SYNTHETIC 1793197904055] resumed oi bom jogo",
+      "translated": "resumed hey good game",
+      "direction": "pt-en",
+      "engine": "groq"
+    },
+    {
+      "id": "ed703a39-005c-4902-8bf1-0d2510f771a5",
+      "user": "1596471405",
+      "name": "igoreduardoai",
+      "fragments": [
+        {
+          "type": "text",
+          "text": "[PONTE TEST / SYNTHETIC 1793197904055] opted-in oi bom jogo",
+          "cheermote": null,
+          "emote": null,
+          "mention": null,
+          "gif": null
+        }
+      ],
+      "original": "[PONTE TEST / SYNTHETIC 1793197904055] opted-in oi bom jogo",
+      "translated": "opted-in hi good game",
+      "direction": "pt-en",
+      "engine": "groq"
+    },
+    {
+      "id": "c6ebe098-9305-49de-a845-169449ec5efe",
+      "user": "1596471405",
+      "name": "igoreduardoai",
+      "fragments": [
+        {
+          "type": "text",
+          "text": "[PONTE TEST / SYNTHETIC 1793197904055] reconnect bom jogo ",
+          "cheermote": null,
+          "emote": null,
+          "mention": null,
+          "gif": null
+        },
+        {
+          "type": "emote",
+          "text": "Kappa",
+          "cheermote": null,
+          "emote": {
+            "id": "25",
+            "emote_set_id": "0",
+            "owner_id": "0",
+            "format": [
+              "static"
+            ]
+          },
+          "mention": null,
+          "gif": null
+        }
+      ],
+      "original": "[PONTE TEST / SYNTHETIC 1793197904055] reconnect bom jogo Kappa",
+      "translated": "[PONTE TEST / SYNTHETIC 1793197904055] reconnect good game Kappa",
+      "direction": "pt-en",
+      "engine": "groq"
+    }
+  ],
+  "unexercised": [
+    "Twitch moderator deletion/timeout/clear notifications (subscription creation only; no moderation action triggered)",
+    "Twitch server-directed session_reconnect handoff",
+    "OBS Browser Source",
+    "15-minute broadcast"
+  ],
+  "completedAt": "2026-10-28T14:32:08.081Z",
+  "translatorSourceSHA256": "05e00e7b9110680cf2a0d81d50571b101b5124def75920a4740d75b51dab5523",
+  "persistedTokenRevalidated": {
+    "userId": "1596471405",
+    "clientIdMatches": true,
+    "permissions": "0600",
+    "tokenValuesRecorded": false
+  },
+  "browserEvidence": "docs/twitch-browser-report.json"
+}

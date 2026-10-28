@@ -63,8 +63,29 @@ OBS was not found and was not installed. Browser computed-style inspection
 confirmed alpha-transparent root and body after correcting the root CSS;
 this is not an OBS test. Evidence: `docs/obs-validation.json`.
 Twitch OAuth subsequently completed and the real token was validated for
-`igoreduardoai`; the user ID was obtained from Twitch and saved locally.
-EventSub, replies and moderation remain unexercised while the test channel
-is pending. Evidence: `docs/twitch-auth-report.json`.
-No new third-party package, image or application was installed. Nothing was
-published, submitted or pushed; this remains a separate local Ponte project.
+`igoreduardoai`. After explicit channel authorization, 12 real integration
+checks passed: subscriptions, PT↔EN chat/Groq/SSE, emote fragments, Helix reply,
+Hide, Pause/resume, opt-out/in, bilingual recap, client-disconnect recovery,
+and token refresh. The refreshed token was reloaded from disk and validated.
+The browser loaded Kappa from the Twitch CDN with natural width 50.
+See `docs/twitch-live-report.json` and `docs/twitch-browser-report.json`.
+
+The first real chat test failed because the shared broadcaster/bot account
+was ignored wholesale. That failure remains in `docs/twitch-baseline-report.json`.
+The pipeline now excludes only known generated replies. `npm test` passes
+29 tests, including this regression and the EventSub-before-Helix race.
+The translator/glossary and 50-row benchmark remain unchanged. Test sockets
+and HTTP server were closed. OBS, real remote moderation actions,
+server-directed reconnect handoff and a 15-minute broadcast remain pending.
+No new third-party package, image or application was installed. No code was
+published or pushed and no contest submission was made. Only the explicitly
+authorized synthetic chat tests used Twitch; Ponte files remain local.
+
+
+The first post-fix integration run exposed an English empty-chat notice in
+recap's Portuguese field during manual output review. That run is preserved
+as `docs/twitch-live-attempt-1.json`. The pipeline now localizes empty-side
+notices and reports recap engine explicitly, so extractive fallback cannot
+pass as Groq. The latest complete real run repeated all 12 checks and verified
+the Portuguese notice; browser evidence was recaptured. The translator source
+and the 50-row dataset were not modified by either integration fix.

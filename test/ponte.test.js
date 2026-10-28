@@ -84,6 +84,6 @@ test('device authorization polls pending, slows down and saves successful token'
   }});
   assert.deepEqual(delays,[5000,5000,10000]);assert.equal(saved.access_token,'synthetic');
 });
-test('bot messages never trigger translation or commands', async () => { const p=new Pipeline({ignoreUser:'pt1',translator:async()=>{throw new Error('loop');}});await p.message(eventFor(0));assert.equal(p.lines.length,0); });
+test('broadcaster messages translate even when broadcaster and bot are the same account', async () => { const p=new Pipeline({botUser:'pt1',translator:async text=>({original:text,translated:'hey',direction:'pt-en',engine:'offline'})});await p.message(eventFor(0));assert.equal(p.lines.length,1); });
 test('bilingual topic summary parses provider JSON', async () => { const result=await summarize([],{apiKey:'synthetic',fetcher:async()=>Response.json({choices:[{message:{content:JSON.stringify({pt:'Falam do jogo.',en:'Discussing the game.'})}}]})});assert.equal(result.en,'Discussing the game.'); });
 test('deletion cancels an in-flight provider recap', async () => { let resolve;const published=[];const p=new Pipeline({translator:async()=>({original:'secret',translated:'secret',direction:'pt-en'}),publish:(type,data)=>published.push([type,data]),summarizer:()=>new Promise(r=>resolve=r)});await p.message(eventFor(0));const pending=p.recap();p.hide('synthetic-0');resolve({pt:'secret',en:'secret'});await pending;assert.equal(published.filter(([type,data])=>type==='recap'&&data.en==='secret').length,0); });

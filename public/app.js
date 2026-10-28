@@ -8,7 +8,7 @@ async function action(path, data) {
   catch { alert('Ação não aplicada. Verifique a conexão.'); }
 }
 function button(text, callback) { const b = el('button', text); b.onclick = callback; return b; }
-events.addEventListener('config', event => { fixture = JSON.parse(event.data).fixture; document.querySelector('#badge').textContent = fixture ? 'FIXTURE / TEST CHAT · SYNTHETIC' : 'LIVE'; });
+events.addEventListener('config', event => { const config = JSON.parse(event.data); fixture = config.fixture; document.querySelector('#badge').textContent = fixture ? 'FIXTURE / TEST CHAT · SYNTHETIC' : config.liveTest ? 'LIVE TWITCH TEST · SYNTHETIC' : 'LIVE'; });
 events.addEventListener('state', event => {
   const state = JSON.parse(event.data); lines.replaceChildren();
   for (const line of state.lines.slice(panel ? -100 : -6)) {
@@ -30,3 +30,5 @@ events.addEventListener('state', event => {
 events.addEventListener('recap', event => { const recap = JSON.parse(event.data); document.querySelector('#recap').textContent = `${recap.pt}\n${recap.en}`; });
 events.onopen = () => { if (panel) document.querySelector('#connection').textContent = 'Conectado · controle local'; };
 events.onerror = () => { if (panel) document.querySelector('#connection').textContent = 'Reconectando…'; };
+
+events.addEventListener('transport', event => { if (panel) document.querySelector('#connection').textContent = `Controle local · Twitch EventSub: ${JSON.parse(event.data).state}`; });

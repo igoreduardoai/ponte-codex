@@ -6,14 +6,14 @@ import { TwitchAPI } from './auth.js';
 import { TwitchReader } from './twitch.js';
 import { eventFor } from './fixture.js';
 import { translate, summarize } from './translate.js';
-export async function createApp({ fixture = false, port = 8787 } = {}) {
+import { sendChat } from './chat.js';
+export async function createApp({ fixture = false, port = 8787, acceptMessage, onTwitchStatus, liveTest = false } = {}) {
   const peers = new Set();
   const publish = (type, data) => { for (const peer of peers) peer.write(`event: ${type}\ndata: ${JSON.stringify(data)}\n\n`); };
   let api, reader, ticker, recapTimer, heartbeat;
-  const pipeline = new Pipeline({ publish, summarizer: fixture || !process.env.GROQ_API_KEY ? undefined : summarize, ignoreUser: fixture ? undefined : process.env.TWITCH_USER_ID, translator: (text, fragments) => translate(text, fragments, fixture ? { apiKey: '' } : {}), reply: async message => {
+  const pipeline = new Pipeline({ publish, acceptMessage, summarizer: fixture || !process.env.GROQ_API_KEY ? undefined : summarize, botUser: fixture ? undefined : process.env.TWITCH_USER_ID, translator: (text, fragments) => translate(text, fragments, fixture ? { apiKey: '' } : {}), reply: async message => {
     if (fixture) { console.log(`[SYNTHETIC reply] ${message}`); return; }
-    const result = await api.request('chat/messages', { broadcaster_id: process.env.TWITCH_BROADCASTER_ID, sender_id: process.env.TWITCH_USER_ID, message });
-    if (result.data?.[0]?.is_sent === false) console.error('Chat reply rejected:', result.data[0].drop_reason?.code);
+    return sendChat(api, message);
   } });
   const server = http.createServer(async (req, res) => {
     try {
@@ -25,7 +25,7 @@ export async function createApp({ fixture = false, port = 8787 } = {}) {
       res.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https://static-cdn.jtvnw.net; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'");
       if (req.method === 'GET' && url.pathname === '/events') {
         res.writeHead(200, { 'Content-Type': 'text/event-stream', Connection: 'keep-alive' });
-        peers.add(res); res.write(`event: config\ndata: ${JSON.stringify({ fixture })}\n\nevent: state\ndata: ${JSON.stringify(pipeline.snapshot())}\n\n`);
+        peers.add(res); res.write(`event: config\ndata: ${JSON.stringify({ fixture, liveTest })}\n\nevent: state\ndata: ${JSON.stringify(pipeline.snapshot())}\n\n`);
         req.on('close', () => peers.delete(res)); return;
       }
       if (req.method === 'POST' && ['/hide','/pause'].includes(url.pathname)) {
@@ -52,12 +52,12 @@ export async function createApp({ fixture = false, port = 8787 } = {}) {
   }
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, '127.0.0.1', resolve); });
   if (fixture) { let index = 0; await pipeline.message(eventFor(index++)); ticker = setInterval(() => pipeline.message(eventFor(index++)).catch(e => console.error(e.message)), 2500); }
-  else { reader = new TwitchReader(api, pipeline); reader.start(); }
+  else { reader = new TwitchReader(api, pipeline, { onStatus: status => { publish('transport', status); onTwitchStatus?.(status); } }); reader.start(); }
   recapTimer = setInterval(() => pipeline.recap(), 60000);
   heartbeat = setInterval(() => { for (const peer of peers) peer.write(': heartbeat\n\n'); }, 15000);
   const address = `http://127.0.0.1:${server.address().port}`;
   console.log(`Ponte ${fixture ? 'FIXTURE / TEST CHAT (SYNTHETIC, offline)' : 'LIVE'}: ${address}/panel | ${address}/overlay`);
-  return { server, pipeline, address, async close() { clearInterval(ticker); clearInterval(recapTimer); clearInterval(heartbeat); reader?.stop(); for (const peer of peers) peer.end(); await new Promise(resolve => server.close(resolve)); } };
+  return { server, pipeline, address, reader, api, async close() { clearInterval(ticker); clearInterval(recapTimer); clearInterval(heartbeat); reader?.stop(); for (const peer of peers) peer.end(); await new Promise(resolve => server.close(resolve)); } };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) createApp({ fixture: process.argv.includes('--fixture'), port: Number(process.env.PORT || 8787) }).then(app => {
   for (const signal of ['SIGINT','SIGTERM']) process.once(signal, () => app.close().then(() => process.exit()));

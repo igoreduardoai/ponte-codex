@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-10-28T14:27:10.766Z",
+  "channel": "igoreduardoai",
+  "test": "Real EventSub → existing pipeline, authenticated sender equals broadcaster",
+  "subscriptions": [
+    "channel.chat.message",
+    "channel.chat.message_delete",
+    "channel.chat.clear_user_messages",
+    "channel.chat.clear"
+  ],
+  "sent": true,
+  "messageId": "f7a98fc6-3473-4b04-9ccc-74971b1f099e",
+  "receivedMessageId": "f7a98fc6-3473-4b04-9ccc-74971b1f099e",
+  "original": "[PONTE TEST / SYNTHETIC 1793197630766] salve chat, bom jogo Kappa",
+  "overlayLines": 0,
+  "status": "FAIL",
+  "error": "Authenticated broadcaster messages are discarded by ignoreUser before translation."
+}

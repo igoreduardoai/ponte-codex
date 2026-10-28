@@ -1,0 +1,19 @@
+{
+  "observedAt": "2026-10-28T14:40:33.465Z",
+  "status": "PASS",
+  "url": "http://127.0.0.1:8788/overlay",
+  "badge": "LIVE TWITCH TEST · SYNTHETIC",
+  "htmlComputedBackground": "rgba(0, 0, 0, 0)",
+  "bodyComputedBackground": "rgba(0, 0, 0, 0)",
+  "recapPT": "Sem mensagens recentes em inglês.",
+  "emotes": [
+    {
+      "alt": "Kappa",
+      "src": "https://static-cdn.jtvnw.net/emoticons/v2/25/default/dark/2.0",
+      "complete": true,
+      "naturalWidth": 50
+    }
+  ],
+  "screenshot": "docs/twitch-live-overlay.png",
+  "obsTestPerformed": false
+}
