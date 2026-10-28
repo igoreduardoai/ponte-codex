@@ -3,3 +3,6 @@ node_modules/
 .ponte-token.json
 .ponte-token.json.tmp
 eval-report.json
+
+.env.*
+!.env.example
