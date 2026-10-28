@@ -8,7 +8,7 @@ the `codexSessionId` reported by the desktop browser inventory. No new chat,
 generated UUID or mocked status-line payload was used as submission evidence.
 
 The user-invoked `statusline` skill at
-`/Users/louisxiv/.agents/skills/statusline/SKILL.md` documents receiving
+`~/.agents/skills/statusline/SKILL.md` (local, not in this repository) documents receiving
 `session_id` via a CLI status-line JSON payload and editing a Cursor CLI
 configuration. That is not necessary to identify this active desktop chat;
 global CLI configuration was left untouched. The official Codex command

@@ -3,7 +3,7 @@
 The baseline below records the initial commit. Updated provider, evaluation,
 OBS and session evidence is in `docs/integration-status.md`.
 
-Scope: new `/Users/louisxiv/ponte`, local Git only, no remote. No Cortexa
+Scope: new local project (`<project>/`), local Git only, no remote at the time. No Cortexa
 files were edited. No account login, external messages, publication or submission.
 
 Runtime exercised: pre-existing Node v24.15.0 on the host. No new open-source

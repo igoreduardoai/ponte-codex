@@ -1,21 +1,27 @@
 # Ponte · PT ↔ EN
 
-Built with Codex in a new local project. A live Twitch chat bridge with
-an OBS browser overlay, local moderation controls, opt-out commands, and
-an offline synthetic demonstration. Nothing has been published or submitted.
+Built with Codex in a new local project. A live Twitch chat bridge that
+translates Portuguese ↔ English chat, with a browser overlay (browser source
+designed for OBS; not yet tested inside OBS), local moderation controls,
+opt-out commands, and an offline synthetic demonstration.
 
 ## Quick start
 
-Node **24+**, ESM, no npm dependencies and no install
-step. Native WebSocket replaces the optional `ws` dependency from the brief.
+Requirements: **Node.js 24 or newer** (`node --version`). ESM, zero npm
+dependencies; native WebSocket replaces the optional `ws` dependency from the
+brief. `npm install` is safe to run but installs nothing.
 
 ```sh
-cd /Users/louisxiv/ponte
-npm test
-npm run fixture
+git clone https://github.com/igoreduardoai/ponte-codex.git
+cd ponte-codex
+npm install          # no dependencies; optional
+cp .env.example .env # only needed for live mode; fixture mode works without it
+npm test             # automated tests (synthetic data, mocked providers)
+npm run fixture      # offline synthetic demo on http://127.0.0.1:8787
 ```
 
-Open <http://127.0.0.1:8787/panel>. OBS Browser Source:
+Open <http://127.0.0.1:8787/panel>. The overlay is a browser source designed
+for OBS; not yet tested inside OBS. Browser Source URL:
 <http://127.0.0.1:8787/overlay>, width 1000, height 900, transparent background.
 Use the exact `127.0.0.1` address, not `localhost`. Stop with Ctrl+C.
 Fixture mode ignores provider keys, sends no Twitch requests, and displays
@@ -33,7 +39,7 @@ avoid CDN requests. No personal messages are used.
    `.ponte-token.json` with mode 0600. Do not share this file.
 4. Run `npm start`. Authentication validates at startup and hourly, refreshes
    near expiry, and retries one time after HTTP 401. Reauthorize if refresh fails.
-5. Optionally set `GROQ_API_KEY`. Live chat text then goes to Groq for
+5. Optionally set `GROQ_API_KEY` in `.env` (never commit it). Live chat text then goes to Groq for
    translation using `openai/gpt-oss-20b`. Without it, or on provider errors,
    the app uses a small, intentionally limited word dictionary.
 
@@ -121,9 +127,8 @@ Protocol references: [Twitch OAuth](https://dev.twitch.tv/docs/authentication/ge
 [EventSub WebSockets](https://dev.twitch.tv/docs/eventsub/handling-websocket-events/),
 [Chat events](https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types/).
 
-MIT license. This project's local creation date is 2026-10-28. It is not
-represented as a project created after 2026-10-30 or as an eligible Kiroween
-submission. No contest eligibility, account ownership, or session ID is fabricated.
+MIT license. This project's local creation date is 2026-10-28. No contest
+eligibility, account ownership, or session ID is fabricated.
 
 
 ## Reproduce the validation
@@ -137,7 +142,7 @@ submission. No contest eligibility, account ownership, or session ID is fabricat
 - `npm run session:id`: actual current Codex session identity, without changing
   a global status-line configuration. Evidence: `docs/codex-session.json`.
 
-- `npm run test:twitch -- --channel igoreduardoai`: **sends public synthetic
+- `npm run test:twitch -- --channel <your_channel_login>` (validated on `igoreduardoai`): **sends public synthetic
   messages** in that explicitly selected channel and tests the real stack.
   The configured numeric broadcaster must resolve to that login before any
   message is sent. Unrelated chat is filtered before Groq calls. Add `--preview`
