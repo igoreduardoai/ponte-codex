@@ -5,14 +5,17 @@ publicação, inscrição ou alteração no Cortexa foi realizado.
 
 ## Os quatro itens solicitados
 
-1. **Groq real: executado. Twitch real: pendente.** `npm run test:groq`
+1. **Groq real: executado. Twitch: OAuth validado, chat pendente.** `npm run test:groq`
    passou com `openai/gpt-oss-20b`: PT→EN, EN→PT e resumo bilíngue.
    Emotes, menção, URL e emoji usados no teste foram preservados.
    Fallback offline é explicitamente rejeitado como sucesso neste teste.
    [Saídas reais](groq-smoke-report.json).
-   Twitch não foi autenticado nem conectado: faltam `TWITCH_CLIENT_ID`,
-   `TWITCH_BROADCASTER_ID`, `TWITCH_USER_ID` e `.ponte-token.json`.
-   O canal autorizado para as mensagens sintéticas não foi informado.
+   O token Twitch foi validado de verdade para `igoreduardoai`, com
+   `user:read:chat` e `user:write:chat`; o Client ID confere. O ID da conta
+   foi obtido da Twitch e salvo no `.env`, sem expor o token.
+   [Evidência OAuth](twitch-auth-report.json).
+   Falta escolher o canal para definir `TWITCH_BROADCASTER_ID`. Nenhuma
+   inscrição EventSub ou mensagem foi criada nesta validação.
    O [preflight](live-preflight.json) só verifica configuração, sem rede.
 2. **OBS: não executado.** Não foi encontrado nas pastas padrão, no
    inventário de aplicativos ou na busca Spotlight por `OBS.app`.
@@ -83,7 +86,7 @@ de desenvolvimento e validação independente.
 sucesso real, duplicatas, emotes repetidos, fragmentos, identidade da sessão,
 e espera limitada após HTTP 429. Não foi necessária migração de dados.
 
-Ainda não exercitados: OAuth Twitch real, renovação real, EventSub real,
+Ainda não exercitados: renovação Twitch real, EventSub real,
 respostas Helix, moderação real, reconexão real, renderização de emotes CDN,
 OBS e live de 15 minutos. Dependem de credenciais/configuração Twitch,
 canal autorizado e acesso ao OBS com a validação de instalação exigida.

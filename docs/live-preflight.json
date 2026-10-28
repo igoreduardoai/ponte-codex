@@ -1,11 +1,9 @@
 {
   "ready": false,
   "missingEnvironmentKeys": [
-    "TWITCH_CLIENT_ID",
-    "TWITCH_BROADCASTER_ID",
-    "TWITCH_USER_ID"
+    "TWITCH_BROADCASTER_ID"
   ],
-  "twitchTokenFilePresent": false,
+  "twitchTokenFilePresent": true,
   "networkRequestsMade": 0,
   "note": "Configuration check only. This does not validate tokens or count as a real provider test."
 }

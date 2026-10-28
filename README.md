@@ -22,7 +22,7 @@ Fixture mode ignores provider keys, sends no Twitch requests, and displays
 `FIXTURE / TEST CHAT · SYNTHETIC`. Emotes appear as text in fixture mode to
 avoid CDN requests. No personal messages are used.
 
-## Live setup (Groq exercised; Twitch still pending)
+## Live setup (Groq exercised; Twitch OAuth validated)
 
 1. Register a public Twitch application yourself in the Twitch developer
    console. No client secret is used. Copy `.env.example` to `.env`.
@@ -100,7 +100,9 @@ offline fixture. No payment or paid resource has been configured.
 
 Real Groq PT→EN, EN→PT and bilingual topic recap were exercised with synthetic
 messages; evidence is in `docs/groq-smoke-report.json`. This does not validate
-Twitch or OBS. Real Twitch login, refresh, reconnect, moderation, Helix replies,
+the Twitch chat integration or OBS. The Twitch OAuth token was validated for
+`igoreduardoai`; see `docs/twitch-auth-report.json`. Real refresh, reconnect,
+EventSub, moderation, Helix replies,
 OBS rendering and a 15-minute live session remain pending. Browser inspection
 confirmed transparent computed backgrounds on the overlay root and body.
 Current blockers and evidence are recorded in `docs/integration-status.md`.

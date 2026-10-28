@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-10-28T14:14:51.393Z",
+  "status": "TOKEN_VALIDATED",
+  "login": "igoreduardoai",
+  "userId": "1596471405",
+  "scopes": [
+    "user:read:chat",
+    "user:write:chat"
+  ],
+  "expiresInSeconds": 14201,
+  "clientIdMatches": true,
+  "userIdSavedLocally": true,
+  "chatSubscriptionsCreated": 0,
+  "chatMessagesSent": 0,
+  "note": "Real OAuth token validated against Twitch. EventSub, chat replies and moderation are still untested; test channel is pending."
+}

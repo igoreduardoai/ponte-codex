@@ -62,6 +62,9 @@ completed counts and errors before using scores.
 OBS was not found and was not installed. Browser computed-style inspection
 confirmed alpha-transparent root and body after correcting the root CSS;
 this is not an OBS test. Evidence: `docs/obs-validation.json`.
-Twitch remains unexercised without its three configuration IDs and token.
+Twitch OAuth subsequently completed and the real token was validated for
+`igoreduardoai`; the user ID was obtained from Twitch and saved locally.
+EventSub, replies and moderation remain unexercised while the test channel
+is pending. Evidence: `docs/twitch-auth-report.json`.
 No new third-party package, image or application was installed. Nothing was
 published, submitted or pushed; this remains a separate local Ponte project.
