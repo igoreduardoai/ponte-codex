@@ -1,5 +1,8 @@
 # Local validation · 2026-10-28
 
+The baseline below records the initial commit. Updated provider, evaluation,
+OBS and session evidence is in `docs/integration-status.md`.
+
 Scope: new `/Users/louisxiv/ponte`, local Git only, no remote. No Cortexa
 files were edited. No account login, external messages, publication or submission.
 
@@ -41,3 +44,24 @@ No vulnerability scanner or disposable VM was used: there was no new
 third-party software to install or promote. This is not a clean security
 scan or proof of malware absence. Any future third-party installation or
 rollout must follow the user's provenance review and isolated-VM rule.
+
+
+## Follow-up validation
+
+`npm test` now passes 25 automated tests. Fifty new synthetic examples were
+written and exercised. Real Groq translation in both directions and bilingual
+recap passed (`docs/groq-smoke-report.json`). The unchanged translator and
+new dataset have SHA-256 evidence in the report and manifest. Actual session
+identity was captured in `docs/codex-session.json`.
+
+The original real evaluation attempt hit rate limits and remains preserved as
+`docs/eval-50-attempt-1.json`. The paced comparison and all individual outputs
+are in `docs/eval-50-report.json`. No glossary tuning was performed. See its
+completed counts and errors before using scores.
+
+OBS was not found and was not installed. Browser computed-style inspection
+confirmed alpha-transparent root and body after correcting the root CSS;
+this is not an OBS test. Evidence: `docs/obs-validation.json`.
+Twitch remains unexercised without its three configuration IDs and token.
+No new third-party package, image or application was installed. Nothing was
+published, submitted or pushed; this remains a separate local Ponte project.

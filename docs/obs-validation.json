@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-28T13:37:54.760782+00:00",
+  "obsTestStatus": "NOT RUN",
+  "reason": "OBS was not found in /Applications, ~/Applications, desktop app inventory, or Spotlight OBS.app search.",
+  "installationAttempted": false,
+  "installationGate": "User instructions require provenance review and disposable-VM first execution before any new third-party installation; that validation has not been performed.",
+  "browserOnlyValidation": {
+    "url": "http://127.0.0.1:8787/overlay",
+    "htmlComputedBackground": "rgba(0, 0, 0, 0)",
+    "bodyComputedBackground": "rgba(0, 0, 0, 0)",
+    "renderedLines": 6,
+    "badge": "FIXTURE / TEST CHAT \u00b7 SYNTHETIC",
+    "screenshot": "docs/overlay-browser-preview.png"
+  },
+  "remaining": [
+    "Real OBS Browser Source rendering",
+    "OBS capture/recording output verification",
+    "15-minute live run"
+  ]
+}

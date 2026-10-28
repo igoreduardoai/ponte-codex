@@ -1,0 +1,1717 @@
+{
+  "dataset": "data/eval-50.jsonl",
+  "datasetSHA256": "6e2164f6dc5f1b5d182900eea398fe0390bf26a625e7713091a3612a26c174e1",
+  "rows": 50,
+  "translatorSourceSHA256": "05e00e7b9110680cf2a0d81d50571b101b5124def75920a4740d75b51dab5523",
+  "glossarySHA256": "a0dd578d8b8af23d081f3578a2edcdf70d2b706ed57bac58701eedf60b311d25",
+  "ptDetectionRate": 0.8,
+  "warning": "50 PT→EN synthetic/reference examples. Authored by the implementation author, not a blind independent benchmark. No held-out EN→PT coverage. chrF is sentence-macro, character orders 1–6, beta=2, whitespace removed. Slang retention is a diagnostic, not semantic accuracy.",
+  "reports": [
+    {
+      "mode": "literal",
+      "status": "INCOMPLETE",
+      "samples": 31,
+      "failures": 19,
+      "chrF": 59.82,
+      "emotesKept": 1,
+      "emoteOccurrences": 6,
+      "protectedTokensKept": 1,
+      "protectedTokenOccurrences": 12,
+      "slangUntranslated": 0.07692307692307693,
+      "slangOccurrences": 26,
+      "p50ms": 467.51,
+      "p95ms": 791.45,
+      "latencyScope": "successful attempts only",
+      "preservationScope": "successful translations only; failed rows are excluded and reported separately",
+      "details": [
+        {
+          "id": "pt-01",
+          "category": "greeting",
+          "input": "salve chat, cheguei atrasado Kappa",
+          "reference": "hey chat, I got here late Kappa",
+          "output": "Hey chat, I arrived late Kappa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 53.81,
+          "latencyMs": 550.99
+        },
+        {
+          "id": "pt-02",
+          "category": "slang",
+          "input": "bora mais uma partida antes de dormir",
+          "reference": "let’s go for one more match before bed",
+          "output": "Let's play another game before sleeping.",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 21.69,
+          "latencyMs": 467.51
+        },
+        {
+          "id": "pt-03",
+          "category": "mention",
+          "input": "valeu pela dica, @jogador_7!",
+          "reference": "thanks for the tip, @jogador_7!",
+          "output": "thanks for the tip, @jogador_7!",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 100,
+          "latencyMs": 499.29
+        },
+        {
+          "id": "pt-04",
+          "category": "reaction",
+          "input": "mano, esse final foi absurdo LUL",
+          "reference": "dude, that ending was insane LUL",
+          "output": "bro, this ending was absurd LUL",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 37.8,
+          "latencyMs": 490.24
+        },
+        {
+          "id": "pt-05",
+          "category": "negation",
+          "input": "não abre o baú ainda, tem uma armadilha",
+          "reference": "don’t open the chest yet, there’s a trap",
+          "output": "the chest hasn't opened yet, there's a trap",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 57.83,
+          "latencyMs": 791.45
+        },
+        {
+          "id": "pt-06",
+          "category": "technical",
+          "input": "o áudio tá baixo só pra mim?",
+          "reference": "is the audio quiet just for me?",
+          "output": "Is the audio low only for me?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 44.32,
+          "latencyMs": 415.71
+        },
+        {
+          "id": "pt-07",
+          "category": "technical",
+          "input": "a imagem travou mas o som continua normal",
+          "reference": "the picture froze but the sound is still fine",
+          "output": "the image froze but the sound continues normal",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 49.5,
+          "latencyMs": 358.02
+        },
+        {
+          "id": "pt-08",
+          "category": "gaming",
+          "input": "que clutch lindo, achei que já era PogChamp",
+          "reference": "what a beautiful clutch, I thought it was over PogChamp",
+          "output": "what a nice clutch, I thought it was already PogChamp",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 61.35,
+          "latencyMs": 408
+        },
+        {
+          "id": "pt-09",
+          "category": "gaming",
+          "input": "fiquei sem mana bem na hora da luta",
+          "reference": "I ran out of mana right when the fight started",
+          "output": "I was out of mana right at the time of the fight.",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 54.03,
+          "latencyMs": 556.83
+        },
+        {
+          "id": "pt-10",
+          "category": "idiom",
+          "input": "o boss tá com um pingo de vida, vai!",
+          "reference": "the boss has just a sliver of health left, go!",
+          "output": "the boss is with a drop of life, go!",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 26.05,
+          "latencyMs": 449.63
+        },
+        {
+          "id": "pt-11",
+          "category": "laughter",
+          "input": "kkkk eu caí no mesmo buraco de novo",
+          "reference": "lol I fell into the same hole again",
+          "output": "kkkk I fell into the same hole again",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 87.49,
+          "latencyMs": 1079.98
+        },
+        {
+          "id": "pt-12",
+          "category": "emoji",
+          "input": "mds, quase derrubei meu café 😂",
+          "reference": "omg, I almost spilled my coffee 😂",
+          "output": "mds, I almost spilled my coffee 😂",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 88.31,
+          "latencyMs": 514.7
+        },
+        {
+          "id": "pt-13",
+          "category": "gaming",
+          "input": "tô farmando faz meia hora e nada de drop",
+          "reference": "I’ve been farming for half an hour and still no drop",
+          "output": "I'm farming for half an hour and nothing of drop",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 59.56,
+          "latencyMs": 423.3
+        },
+        {
+          "id": "pt-14",
+          "category": "gaming",
+          "input": "esse mapa tá me tiltando demais",
+          "reference": "this map is tilting me so much",
+          "output": "this map is tilting me too much",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 82.22,
+          "latencyMs": 318.68
+        },
+        {
+          "id": "pt-15",
+          "category": "mention",
+          "input": "boa, @Lia! salvou o time inteiro",
+          "reference": "nice one, @Lia! you saved the whole team",
+          "output": "good, @Lia! saved the whole team",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 62.01,
+          "latencyMs": 477.6
+        },
+        {
+          "id": "pt-16",
+          "category": "question",
+          "input": "alguém sabe se dá pra jogar no controle?",
+          "reference": "does anyone know if you can play with a controller?",
+          "output": "Does anyone know if it's possible to play on the controller?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 57.84,
+          "latencyMs": 626.3
+        },
+        {
+          "id": "pt-17",
+          "category": "negation",
+          "input": "vou pegar uma água, não começa sem mim",
+          "reference": "I’m going to get some water, don’t start without me",
+          "output": "I will get a water, don't start without me.",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 52.89,
+          "latencyMs": 434.26
+        },
+        {
+          "id": "pt-18",
+          "category": "time",
+          "input": "a live termina às 23h ou vai até mais tarde?",
+          "reference": "does the stream end at 11 pm or go on later?",
+          "output": "Does the live end at 11pm or does it go later?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 53.8,
+          "latencyMs": 487.87
+        },
+        {
+          "id": "pt-19",
+          "category": "numbers",
+          "input": "paguei R$ 29,90 nesse jogo e valeu cada centavo",
+          "reference": "I paid R$ 29,90 for this game and it was worth every cent",
+          "output": "I paid R$ 29.90 for this game and it was worth every cent.",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 91.16,
+          "latencyMs": 523.6
+        },
+        {
+          "id": "pt-20",
+          "category": "url",
+          "input": "o tutorial tá aqui: https://example.com/guia?q=ponte&lang=pt",
+          "reference": "the tutorial is here: https://example.com/guia?q=ponte&lang=pt",
+          "output": "the tutorial is here: https://example.com/guia?q=ponte&lang=pt",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 100,
+          "latencyMs": 409.69
+        },
+        {
+          "id": "pt-21",
+          "category": "url",
+          "input": "@mod_2 esse link https://example.org/regras é o certo?",
+          "reference": "@mod_2 is this link https://example.org/regras the right one?",
+          "output": "@mod_2 this link https://example.org/regras is the right one?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 89.39,
+          "latencyMs": 509.8
+        },
+        {
+          "id": "pt-22",
+          "category": "moderation",
+          "input": "sem spoiler, por favor, é minha primeira vez",
+          "reference": "no spoilers, please, it’s my first time",
+          "output": "without spoiler, please, it's my first time",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 68.49,
+          "latencyMs": 565.62
+        },
+        {
+          "id": "pt-23",
+          "category": "bilingual",
+          "input": "o chat inglês também tá torcendo pela gente?",
+          "reference": "is the English chat rooting for us too?",
+          "output": "Is the English chat also cheering for us?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 61.29,
+          "latencyMs": 365.59
+        },
+        {
+          "id": "pt-24",
+          "category": "bilingual",
+          "input": "traduz isso pra galera de fora, foi muito bom",
+          "reference": "translate this for the folks abroad, it was really good",
+          "output": "translate this for the people outside, it was very good",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 53.88,
+          "latencyMs": 589.64
+        },
+        {
+          "id": "pt-25",
+          "category": "gaming",
+          "input": "essa build tá roubada demais KEKW",
+          "reference": "this build is way too overpowered KEKW",
+          "output": "this build is stolen too much KEKW",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 39.24,
+          "latencyMs": 516.69
+        },
+        {
+          "id": "pt-26",
+          "category": "idiom",
+          "input": "fui de base antes de conseguir curar",
+          "reference": "I got taken out before I could heal",
+          "output": "I was at base before I could heal.",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 56.17,
+          "latencyMs": 449.11
+        },
+        {
+          "id": "pt-27",
+          "category": "idiom",
+          "input": "deu ruim, acabou a munição",
+          "reference": "we’re in trouble, we ran out of ammo",
+          "output": "It went bad, the ammunition ran out.",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 23.15,
+          "latencyMs": 420.44
+        },
+        {
+          "id": "pt-28",
+          "category": "encouragement",
+          "input": "relaxa, ainda dá pra virar essa",
+          "reference": "relax, we can still turn this around",
+          "output": "relax, you can still turn this",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 65.33,
+          "latencyMs": 462.75
+        },
+        {
+          "id": "pt-29",
+          "category": "idiom",
+          "input": "o cara tá jogando muito, sem condições",
+          "reference": "that guy is playing incredibly well, I can’t even",
+          "output": "the guy is playing a lot, without conditions",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 32.11,
+          "latencyMs": 435.44
+        },
+        {
+          "id": "pt-30",
+          "category": "negation",
+          "input": "não foi lag, eu apertei o botão errado mesmo Kappa",
+          "reference": "it wasn’t lag, I really did press the wrong button Kappa",
+          "output": "It wasn't lag, I pressed the wrong button after all Kappa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 54.08,
+          "latencyMs": 357.63
+        },
+        {
+          "id": "pt-31",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.31
+        },
+        {
+          "id": "pt-32",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 115.46
+        },
+        {
+          "id": "pt-33",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.05
+        },
+        {
+          "id": "pt-34",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.22
+        },
+        {
+          "id": "pt-35",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.91
+        },
+        {
+          "id": "pt-36",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 108.63
+        },
+        {
+          "id": "pt-37",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 85.01
+        },
+        {
+          "id": "pt-38",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 89.08
+        },
+        {
+          "id": "pt-39",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.41
+        },
+        {
+          "id": "pt-40",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.49
+        },
+        {
+          "id": "pt-41",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.16
+        },
+        {
+          "id": "pt-42",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.27
+        },
+        {
+          "id": "pt-43",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 79.55
+        },
+        {
+          "id": "pt-44",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.99
+        },
+        {
+          "id": "pt-45",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 101.25
+        },
+        {
+          "id": "pt-46",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83
+        },
+        {
+          "id": "pt-47",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.78
+        },
+        {
+          "id": "pt-48",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.34
+        },
+        {
+          "id": "pt-49",
+          "category": "url",
+          "input": "olha o guia https://example.net/build#passo-2 e depois me fala",
+          "reference": "check the guide https://example.net/build#passo-2 and let me know afterward",
+          "output": "look at the guide https://example.net/build#passo-2 and then tell me",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 69.57,
+          "latencyMs": 410.27
+        },
+        {
+          "id": "pt-50",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.24
+        }
+      ]
+    },
+    {
+      "mode": "no-glossary",
+      "status": "INCOMPLETE",
+      "samples": 2,
+      "failures": 48,
+      "chrF": 84.32,
+      "emotesKept": null,
+      "emoteOccurrences": 0,
+      "protectedTokensKept": null,
+      "protectedTokenOccurrences": 0,
+      "slangUntranslated": 0,
+      "slangOccurrences": 1,
+      "p50ms": 376.69,
+      "p95ms": 562.95,
+      "latencyScope": "successful attempts only",
+      "preservationScope": "successful translations only; failed rows are excluded and reported separately",
+      "details": [
+        {
+          "id": "pt-01",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.64
+        },
+        {
+          "id": "pt-02",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.73
+        },
+        {
+          "id": "pt-03",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.91
+        },
+        {
+          "id": "pt-04",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.16
+        },
+        {
+          "id": "pt-05",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.75
+        },
+        {
+          "id": "pt-06",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 100.01
+        },
+        {
+          "id": "pt-07",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.91
+        },
+        {
+          "id": "pt-08",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.91
+        },
+        {
+          "id": "pt-09",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.36
+        },
+        {
+          "id": "pt-10",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.3
+        },
+        {
+          "id": "pt-11",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.57
+        },
+        {
+          "id": "pt-12",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 82.74
+        },
+        {
+          "id": "pt-13",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.23
+        },
+        {
+          "id": "pt-14",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 94.5
+        },
+        {
+          "id": "pt-15",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 95.38
+        },
+        {
+          "id": "pt-16",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.95
+        },
+        {
+          "id": "pt-17",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.27
+        },
+        {
+          "id": "pt-18",
+          "category": "time",
+          "input": "a live termina às 23h ou vai até mais tarde?",
+          "reference": "does the stream end at 11 pm or go on later?",
+          "output": "Does the stream end at 11pm or go later?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 83.25,
+          "latencyMs": 376.69
+        },
+        {
+          "id": "pt-19",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 89.41
+        },
+        {
+          "id": "pt-20",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.25
+        },
+        {
+          "id": "pt-21",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.57
+        },
+        {
+          "id": "pt-22",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.46
+        },
+        {
+          "id": "pt-23",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 94.8
+        },
+        {
+          "id": "pt-24",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 85.94
+        },
+        {
+          "id": "pt-25",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.08
+        },
+        {
+          "id": "pt-26",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 85.39
+        },
+        {
+          "id": "pt-27",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.34
+        },
+        {
+          "id": "pt-28",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.03
+        },
+        {
+          "id": "pt-29",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.71
+        },
+        {
+          "id": "pt-30",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.26
+        },
+        {
+          "id": "pt-31",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.32
+        },
+        {
+          "id": "pt-32",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.75
+        },
+        {
+          "id": "pt-33",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 82.37
+        },
+        {
+          "id": "pt-34",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.64
+        },
+        {
+          "id": "pt-35",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.38
+        },
+        {
+          "id": "pt-36",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.7
+        },
+        {
+          "id": "pt-37",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 89.82
+        },
+        {
+          "id": "pt-38",
+          "category": "abbreviation",
+          "input": "vcs viram o clip da última partida?",
+          "reference": "did you all see the clip from the last match?",
+          "output": "Did y'all see the clip from the last match?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 85.38,
+          "latencyMs": 562.95
+        },
+        {
+          "id": "pt-39",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.56
+        },
+        {
+          "id": "pt-40",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 80.32
+        },
+        {
+          "id": "pt-41",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.32
+        },
+        {
+          "id": "pt-42",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.83
+        },
+        {
+          "id": "pt-43",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.57
+        },
+        {
+          "id": "pt-44",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.67
+        },
+        {
+          "id": "pt-45",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.47
+        },
+        {
+          "id": "pt-46",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.13
+        },
+        {
+          "id": "pt-47",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.91
+        },
+        {
+          "id": "pt-48",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 102.5
+        },
+        {
+          "id": "pt-49",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.76
+        },
+        {
+          "id": "pt-50",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.56
+        }
+      ]
+    },
+    {
+      "mode": "full",
+      "status": "INCOMPLETE",
+      "samples": 3,
+      "failures": 47,
+      "chrF": 52.54,
+      "emotesKept": 1,
+      "emoteOccurrences": 1,
+      "protectedTokensKept": 1,
+      "protectedTokenOccurrences": 1,
+      "slangUntranslated": 0,
+      "slangOccurrences": 4,
+      "p50ms": 512,
+      "p95ms": 569.74,
+      "latencyScope": "successful attempts only",
+      "preservationScope": "successful translations only; failed rows are excluded and reported separately",
+      "details": [
+        {
+          "id": "pt-01",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 94.02
+        },
+        {
+          "id": "pt-02",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.7
+        },
+        {
+          "id": "pt-03",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.94
+        },
+        {
+          "id": "pt-04",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.93
+        },
+        {
+          "id": "pt-05",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 94.02
+        },
+        {
+          "id": "pt-06",
+          "category": "technical",
+          "input": "o áudio tá baixo só pra mim?",
+          "reference": "is the audio quiet just for me?",
+          "output": "audio low just for me?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 46.39,
+          "latencyMs": 490.56
+        },
+        {
+          "id": "pt-07",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 82.23
+        },
+        {
+          "id": "pt-08",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 79.15
+        },
+        {
+          "id": "pt-09",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.33
+        },
+        {
+          "id": "pt-10",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.79
+        },
+        {
+          "id": "pt-11",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 94.12
+        },
+        {
+          "id": "pt-12",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 85.93
+        },
+        {
+          "id": "pt-13",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 95.17
+        },
+        {
+          "id": "pt-14",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.28
+        },
+        {
+          "id": "pt-15",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.29
+        },
+        {
+          "id": "pt-16",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.68
+        },
+        {
+          "id": "pt-17",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.35
+        },
+        {
+          "id": "pt-18",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.11
+        },
+        {
+          "id": "pt-19",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.67
+        },
+        {
+          "id": "pt-20",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 82.65
+        },
+        {
+          "id": "pt-21",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 89.89
+        },
+        {
+          "id": "pt-22",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.67
+        },
+        {
+          "id": "pt-23",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 95.82
+        },
+        {
+          "id": "pt-24",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.84
+        },
+        {
+          "id": "pt-25",
+          "category": "gaming",
+          "input": "essa build tá roubada demais KEKW",
+          "reference": "this build is way too overpowered KEKW",
+          "output": "this build is way too good KEKW",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 61.63,
+          "latencyMs": 569.74
+        },
+        {
+          "id": "pt-26",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.69
+        },
+        {
+          "id": "pt-27",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 80.38
+        },
+        {
+          "id": "pt-28",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.04
+        },
+        {
+          "id": "pt-29",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 80.8
+        },
+        {
+          "id": "pt-30",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.11
+        },
+        {
+          "id": "pt-31",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.01
+        },
+        {
+          "id": "pt-32",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 93.07
+        },
+        {
+          "id": "pt-33",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 89.77
+        },
+        {
+          "id": "pt-34",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 92.81
+        },
+        {
+          "id": "pt-35",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 88.65
+        },
+        {
+          "id": "pt-36",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 90.98
+        },
+        {
+          "id": "pt-37",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.17
+        },
+        {
+          "id": "pt-38",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 109.89
+        },
+        {
+          "id": "pt-39",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.07
+        },
+        {
+          "id": "pt-40",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.22
+        },
+        {
+          "id": "pt-41",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.91
+        },
+        {
+          "id": "pt-42",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 84.17
+        },
+        {
+          "id": "pt-43",
+          "category": "question",
+          "input": "o patch saiu hoje ou só amanhã?",
+          "reference": "did the patch come out today or is it tomorrow?",
+          "output": "Patch out today or just tomorrow?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 49.6,
+          "latencyMs": 512
+        },
+        {
+          "id": "pt-44",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 80.05
+        },
+        {
+          "id": "pt-45",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.68
+        },
+        {
+          "id": "pt-46",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 91.51
+        },
+        {
+          "id": "pt-47",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 86.13
+        },
+        {
+          "id": "pt-48",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 87.97
+        },
+        {
+          "id": "pt-49",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 83.76
+        },
+        {
+          "id": "pt-50",
+          "status": "FAILED",
+          "error": "Groq HTTP 429",
+          "latencyMs": 81.2
+        }
+      ]
+    },
+    {
+      "mode": "offline",
+      "status": "OK",
+      "samples": 50,
+      "failures": 0,
+      "chrF": 23.72,
+      "emotesKept": 1,
+      "emoteOccurrences": 20,
+      "protectedTokensKept": 1,
+      "protectedTokenOccurrences": 28,
+      "slangUntranslated": 0.7894736842105263,
+      "slangOccurrences": 38,
+      "p50ms": 0.01,
+      "p95ms": 0.07,
+      "latencyScope": "successful attempts only",
+      "preservationScope": "successful translations only; failed rows are excluded and reported separately",
+      "details": [
+        {
+          "id": "pt-01",
+          "category": "greeting",
+          "input": "salve chat, cheguei atrasado Kappa",
+          "reference": "hey chat, I got here late Kappa",
+          "output": "hey chat, cheguei atrasado Kappa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 40.28,
+          "latencyMs": 0.4
+        },
+        {
+          "id": "pt-02",
+          "category": "slang",
+          "input": "bora mais uma partida antes de dormir",
+          "reference": "let’s go for one more match before bed",
+          "output": "let’s go mais uma partida antes de dormir",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 23.13,
+          "latencyMs": 0.04
+        },
+        {
+          "id": "pt-03",
+          "category": "mention",
+          "input": "valeu pela dica, @jogador_7!",
+          "reference": "thanks for the tip, @jogador_7!",
+          "output": "thanks pela dica, @jogador_7!",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 54.63,
+          "latencyMs": 0.07
+        },
+        {
+          "id": "pt-04",
+          "category": "reaction",
+          "input": "mano, esse final foi absurdo LUL",
+          "reference": "dude, that ending was insane LUL",
+          "output": "dude, esse final foi absurdo LUL",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 20.38,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-05",
+          "category": "negation",
+          "input": "não abre o baú ainda, tem uma armadilha",
+          "reference": "don’t open the chest yet, there’s a trap",
+          "output": "no abre o baú ainda, tem uma armadilha",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 8.21,
+          "latencyMs": 0.03
+        },
+        {
+          "id": "pt-06",
+          "category": "technical",
+          "input": "o áudio tá baixo só pra mim?",
+          "reference": "is the audio quiet just for me?",
+          "output": "o áudio tá baixo só pra mim?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 13.28,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-07",
+          "category": "technical",
+          "input": "a imagem travou mas o som continua normal",
+          "reference": "the picture froze but the sound is still fine",
+          "output": "a imagem travou mas o som continua normal",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 9.67,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-08",
+          "category": "gaming",
+          "input": "que clutch lindo, achei que já era PogChamp",
+          "reference": "what a beautiful clutch, I thought it was over PogChamp",
+          "output": "que clutch lindo, achei que já era PogChamp",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 26.7,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-09",
+          "category": "gaming",
+          "input": "fiquei sem mana bem na hora da luta",
+          "reference": "I ran out of mana right when the fight started",
+          "output": "fiquei sem mana bem na hora da luta",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 14.4,
+          "latencyMs": 0.03
+        },
+        {
+          "id": "pt-10",
+          "category": "idiom",
+          "input": "o boss tá com um pingo de vida, vai!",
+          "reference": "the boss has just a sliver of health left, go!",
+          "output": "o boss tá com um pingo de vida, vai!",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 11.53,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-11",
+          "category": "laughter",
+          "input": "kkkk eu caí no mesmo buraco de novo",
+          "reference": "lol I fell into the same hole again",
+          "output": "kkkk eu caí não mesmo buraco de novo",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 8.32,
+          "latencyMs": 0.03
+        },
+        {
+          "id": "pt-12",
+          "category": "emoji",
+          "input": "mds, quase derrubei meu café 😂",
+          "reference": "omg, I almost spilled my coffee 😂",
+          "output": "mds, quase derrubei meu café 😂",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 9.42,
+          "latencyMs": 0.41
+        },
+        {
+          "id": "pt-13",
+          "category": "gaming",
+          "input": "tô farmando faz meia hora e nada de drop",
+          "reference": "I’ve been farming for half an hour and still no drop",
+          "output": "tô farmando faz meia hora e nada de drop",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 18.65,
+          "latencyMs": 0.04
+        },
+        {
+          "id": "pt-14",
+          "category": "gaming",
+          "input": "esse mapa tá me tiltando demais",
+          "reference": "this map is tilting me so much",
+          "output": "esse mapa tá me tiltando demais",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 20.32,
+          "latencyMs": 0.04
+        },
+        {
+          "id": "pt-15",
+          "category": "mention",
+          "input": "boa, @Lia! salvou o time inteiro",
+          "reference": "nice one, @Lia! you saved the whole team",
+          "output": "good, @Lia! salvou o time inteiro",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 21.51,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-16",
+          "category": "question",
+          "input": "alguém sabe se dá pra jogar no controle?",
+          "reference": "does anyone know if you can play with a controller?",
+          "output": "alguém sabe se dá pra jogar não controle?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 19.98,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-17",
+          "category": "negation",
+          "input": "vou pegar uma água, não começa sem mim",
+          "reference": "I’m going to get some water, don’t start without me",
+          "output": "vou pegar uma água, no começa sem mim",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 10.17,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-18",
+          "category": "time",
+          "input": "a live termina às 23h ou vai até mais tarde?",
+          "reference": "does the stream end at 11 pm or go on later?",
+          "output": "a live termina às 23h ou vai até mais tarde?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 12.76,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-19",
+          "category": "numbers",
+          "input": "paguei R$ 29,90 nesse jogo e valeu cada centavo",
+          "reference": "I paid R$ 29,90 for this game and it was worth every cent",
+          "output": "paguei R$ 29,90 nesse game e thanks cada centavo",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 25.29,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-20",
+          "category": "url",
+          "input": "o tutorial tá aqui: https://example.com/guia?q=ponte&lang=pt",
+          "reference": "the tutorial is here: https://example.com/guia?q=ponte&lang=pt",
+          "output": "o tutorial tá aqui: https://example.com/guia?q=ponte&lang=pt",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 80.32,
+          "latencyMs": 0
+        },
+        {
+          "id": "pt-21",
+          "category": "url",
+          "input": "@mod_2 esse link https://example.org/regras é o certo?",
+          "reference": "@mod_2 is this link https://example.org/regras the right one?",
+          "output": "@mod_2 esse link https://example.org/regras é o certo?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 64.64,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-22",
+          "category": "moderation",
+          "input": "sem spoiler, por favor, é minha primeira vez",
+          "reference": "no spoilers, please, it’s my first time",
+          "output": "sem spoiler, por favor, é minha primeira vez",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 25.57,
+          "latencyMs": 0.03
+        },
+        {
+          "id": "pt-23",
+          "category": "bilingual",
+          "input": "o chat inglês também tá torcendo pela gente?",
+          "reference": "is the English chat rooting for us too?",
+          "output": "o chat inglês também tá torcendo pela gente?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 19.11,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-24",
+          "category": "bilingual",
+          "input": "traduz isso pra galera de fora, foi muito bom",
+          "reference": "translate this for the folks abroad, it was really good",
+          "output": "traduz isso pra galera de fora, foi very good",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 19.92,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-25",
+          "category": "gaming",
+          "input": "essa build tá roubada demais KEKW",
+          "reference": "this build is way too overpowered KEKW",
+          "output": "essa build tá roubada demais KEKW",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 19.8,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-26",
+          "category": "idiom",
+          "input": "fui de base antes de conseguir curar",
+          "reference": "I got taken out before I could heal",
+          "output": "fui de base antes de conseguir curar",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 11.19,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-27",
+          "category": "idiom",
+          "input": "deu ruim, acabou a munição",
+          "reference": "we’re in trouble, we ran out of ammo",
+          "output": "deu ruim, acabou a munição",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 9.71,
+          "latencyMs": 0
+        },
+        {
+          "id": "pt-28",
+          "category": "encouragement",
+          "input": "relaxa, ainda dá pra virar essa",
+          "reference": "relax, we can still turn this around",
+          "output": "relaxa, ainda dá pra virar essa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 17.61,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-29",
+          "category": "idiom",
+          "input": "o cara tá jogando muito, sem condições",
+          "reference": "that guy is playing incredibly well, I can’t even",
+          "output": "o cara tá jogando very, sem condições",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 10.31,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-30",
+          "category": "negation",
+          "input": "não foi lag, eu apertei o botão errado mesmo Kappa",
+          "reference": "it wasn’t lag, I really did press the wrong button Kappa",
+          "output": "no foi lag, eu apertei o botão errado mesmo Kappa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 17.38,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-31",
+          "category": "greeting",
+          "input": "salve @Nina, boa noite pra quem chegou agora 🌙",
+          "reference": "hey @Nina, good evening to everyone who just got here 🌙",
+          "output": "hey @Nina, good night pra quem chegou agora 🌙",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 32.48,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-32",
+          "category": "emotion",
+          "input": "obrigada pela companhia, hoje foi puxado",
+          "reference": "thanks for keeping me company, today was rough",
+          "output": "thanks pela companhia, hoje foi puxado",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 26.03,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-33",
+          "category": "sarcasm",
+          "input": "eu achei que era fácil… achei errado",
+          "reference": "I thought it was easy… I was wrong",
+          "output": "eu achei que era fácil… achei errado",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 6.64,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-34",
+          "category": "repeated-emote",
+          "input": "parabéns pela jogada, foi calculado sim Kappa Kappa",
+          "reference": "congrats on that play, it was totally calculated Kappa Kappa",
+          "output": "parabéns pela jogada, foi calculado yes Kappa Kappa",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 32.65,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-35",
+          "category": "emoji",
+          "input": "só mais cinco minutinhos, prometo 🙏",
+          "reference": "just five more minutes, I promise 🙏",
+          "output": "só mais cinco minutinhos, prometo 🙏",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 22.98,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-36",
+          "category": "emoji",
+          "input": "minha internet caiu na hora do gol 😭",
+          "reference": "my internet went down right when the goal happened 😭",
+          "output": "minha internet caiu na hora do gol 😭",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 21.91,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-37",
+          "category": "mention",
+          "input": "bora de duo amanhã? meu nick é @rato_azul",
+          "reference": "want to duo tomorrow? my handle is @rato_azul",
+          "output": "let’s go de duo amanhã? meu nick é @rato_azul",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 32.18,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-38",
+          "category": "abbreviation",
+          "input": "vcs viram o clip da última partida?",
+          "reference": "did you all see the clip from the last match?",
+          "output": "vcs viram o clip da última partida?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 13.66,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-39",
+          "category": "abbreviation",
+          "input": "pq ele voltou pra base sem comprar nada?",
+          "reference": "why did he go back to base without buying anything?",
+          "output": "pq ele voltou pra base sem comprar nada?",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 10.08,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-40",
+          "category": "abbreviation",
+          "input": "blz, vou esperar a próxima rodada",
+          "reference": "alright, I’ll wait for the next round",
+          "output": "blz, vou esperar a próxima rodada",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 9.36,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-41",
+          "category": "slang",
+          "input": "é nóis, valeu pelo raid! PogChamp",
+          "reference": "we’ve got each other, thanks for the raid! PogChamp",
+          "output": "é nóis, thanks pelo raid! PogChamp",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 40.71,
+          "latencyMs": 0.03
+        },
+        {
+          "id": "pt-42",
+          "category": "technical",
+          "input": "o jogo fechou sozinho de novo, que tristeza BibleThump",
+          "reference": "the game closed on its own again, how sad BibleThump",
+          "output": "o game fechou sozinho de novo, que tristeza BibleThump",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 31.23,
+          "latencyMs": 0.02
+        },
+        {
+          "id": "pt-43",
+          "category": "question",
+          "input": "o patch saiu hoje ou só amanhã?",
+          "reference": "did the patch come out today or is it tomorrow?",
+          "output": "o patch saiu hoje ou só amanhã?",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 14,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-44",
+          "category": "negation",
+          "input": "eu não disse que era impossível, só que ia demorar",
+          "reference": "I didn’t say it was impossible, just that it would take a while",
+          "output": "eu no disse que era impossível, só que ia demorar",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 14.27,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-45",
+          "category": "emoji",
+          "input": "essa skin ficou linda demais 💜✨",
+          "reference": "this skin turned out so beautiful 💜✨",
+          "output": "essa skin ficou linda demais 💜✨",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 17.43,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-46",
+          "category": "slang",
+          "input": "meu gato pisou no teclado, foi mal LUL",
+          "reference": "my cat stepped on the keyboard, my bad LUL",
+          "output": "meu gato pisou não teclado, foi mal LUL",
+          "detectedLanguage": "en",
+          "status": "OK",
+          "chrF": 13.52,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-47",
+          "category": "channel-emote",
+          "input": "oi SubHype, bora comemorar!",
+          "reference": "hi SubHype, let’s celebrate!",
+          "output": "hi SubHype, let’s go comemorar!",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 58.29,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-48",
+          "category": "channel-emote",
+          "input": "hoje tem DevDance no chat 👩‍💻",
+          "reference": "today we have DevDance in chat 👩‍💻",
+          "output": "hoje tem DevDance não chat 👩‍💻",
+          "detectedLanguage": "en",
+          "status": "OK",
+          "chrF": 43.05,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-49",
+          "category": "url",
+          "input": "olha o guia https://example.net/build#passo-2 e depois me fala",
+          "reference": "check the guide https://example.net/build#passo-2 and let me know afterward",
+          "output": "olha o guia https://example.net/build#passo-2 e depois me fala",
+          "detectedLanguage": null,
+          "status": "OK",
+          "chrF": 54.26,
+          "latencyMs": 0.01
+        },
+        {
+          "id": "pt-50",
+          "category": "farewell",
+          "input": "boa noite, gente. amanhã a gente tenta de novo 💪",
+          "reference": "good night, everyone. tomorrow we’ll try again 💪",
+          "output": "good night, gente. amanhã a gente tenta de novo 💪",
+          "detectedLanguage": "pt",
+          "status": "OK",
+          "chrF": 27.2,
+          "latencyMs": 0.01
+        }
+      ]
+    }
+  ]
+}

@@ -22,7 +22,7 @@ Fixture mode ignores provider keys, sends no Twitch requests, and displays
 `FIXTURE / TEST CHAT · SYNTHETIC`. Emotes appear as text in fixture mode to
 avoid CDN requests. No personal messages are used.
 
-## Live setup (not yet exercised with real credentials)
+## Live setup (Groq exercised; Twitch still pending)
 
 1. Register a public Twitch application yourself in the Twitch developer
    console. No client secret is used. Copy `.env.example` to `.env`.
@@ -61,27 +61,31 @@ environment file is served by HTTP.
 ## Evaluation
 
 ```sh
-npm run eval
-# Later, supply your independently written 50-row held-out dataset:
+npm run eval:50
+# Or supply a separate independently authored dataset:
 npm run eval -- /absolute/path/to/held-out.jsonl
 ```
 
 Each JSONL row contains `text`, `reference`, `emotes` (array of preserved
 strings), and `slang` (array of PT slang tokens expected to translate).
-Five synthetic starter rows are included. **These are a smoke test, not an
-independent benchmark**. Do not tune the dictionary/glossary against your
-held-out set. The 50 user-written examples remain pending.
+Fifty new synthetic Portuguese messages and English references are in
+`data/eval-50.jsonl`. Codex authored them before the first run and did not
+change the translator or glossary based on the results. This is **not a blind
+independent benchmark**: the dataset author also wrote the implementation.
+Five original starter rows remain in `data/eval.jsonl` for historical context.
+`npm run eval` now defaults to the 50-row dataset; `npm run eval:50` also saves
+its inspectable report to `docs/eval-50-report.json`.
 
-| Variant | Executed without provider key | Result on 5 starter rows |
-| --- | --- | --- |
-| Literal prompt | No | NOT RUN |
-| Ponte without glossary | No | NOT RUN |
-| Ponte full | No | NOT RUN |
-| Offline rules | Yes | chrF 94.35; 100% annotated emote retention |
+See [evaluation methodology](docs/eval-50-methodology.md) and the actual report
+for completed counts, chrF, emote and protected-token retention, annotated
+slang left untranslated, p50/p95, and all per-example outputs. The first
+unpaced Groq attempt hit HTTP 429 and is preserved as an incomplete attempt;
+the paced run uses the unchanged dataset and translator. Do not compare
+scores computed on different subsets or tune the glossary on these examples.
 
 `eval-report.json` records actual p50/p95 wall-clock latency, provider failures,
-emote retention, and slang left untranslated. No slang annotations exist in
-the starter rows, so that metric is `null`. chrF is a custom sentence-macro
+emote retention, and slang left untranslated. The 50-row set contains slang
+annotations; the five starter rows do not, so their slang metric is `null`. chrF is a custom sentence-macro
 character F-score (orders 1–6, beta=2, whitespace removed); it is not a
 SacreBLEU corpus score. Failed provider runs are reported, never silently
 replaced with offline translations in the comparison.
@@ -94,9 +98,12 @@ Unicode emoji protection is not exhaustive. API quotas/pricing and model
 availability depend on the provider; zero cost is guaranteed only for the
 offline fixture. No payment or paid resource has been configured.
 
-Real Twitch login, refresh, reconnect, moderation events, Helix replies,
-Groq translation, OBS rendering and a 15-minute live session still require
-real-provider validation. Browser UI verification is recorded separately.
+Real Groq PT→EN, EN→PT and bilingual topic recap were exercised with synthetic
+messages; evidence is in `docs/groq-smoke-report.json`. This does not validate
+Twitch or OBS. Real Twitch login, refresh, reconnect, moderation, Helix replies,
+OBS rendering and a 15-minute live session remain pending. Browser inspection
+confirmed transparent computed backgrounds on the overlay root and body.
+Current blockers and evidence are recorded in `docs/integration-status.md`.
 No migration applies: this is a fresh in-memory application. No third-party
 code, package or repository was installed or executed. Before adding one,
 follow the user's provenance review and disposable-VM requirement.
@@ -108,3 +115,15 @@ Protocol references: [Twitch OAuth](https://dev.twitch.tv/docs/authentication/ge
 MIT license. This project's local creation date is 2026-10-28. It is not
 represented as a project created after 2026-10-30 or as an eligible Kiroween
 submission. No contest eligibility, account ownership, or session ID is fabricated.
+
+
+## Reproduce the validation
+
+- `npm test`: automated tests, synthetic data and mocked providers.
+- `npm run check:live`: configuration presence only; no network request.
+- `npm run test:groq`: real PT↔EN and recap calls with `GROQ_API_KEY`; offline
+  fallback explicitly fails this check.
+- `npm run eval:50`: all four variants; the CLI spaces real requests and
+  performs bounded retries after HTTP 429. Reports include failures.
+- `npm run session:id`: actual current Codex session identity, without changing
+  a global status-line configuration. Evidence: `docs/codex-session.json`.

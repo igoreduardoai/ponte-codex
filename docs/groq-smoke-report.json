@@ -1,0 +1,34 @@
+{
+  "observedAt": "2026-10-28T13:35:14.897Z",
+  "provider": "Groq",
+  "model": "openai/gpt-oss-20b",
+  "inputs": "Synthetic test messages only",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "PT→EN + protected emote/mention/URL",
+      "status": "PASS",
+      "original": "salve @ponte_test Kappa https://example.com/teste",
+      "translated": "hey @ponte_test Kappa https://example.com/teste",
+      "direction": "pt-en",
+      "engine": "groq",
+      "latencyMs": 552
+    },
+    {
+      "name": "EN→PT + protected emote/emoji",
+      "status": "PASS",
+      "original": "hello, good game LUL 🎮",
+      "translated": "salve, gg LUL 🎮",
+      "direction": "en-pt",
+      "engine": "groq",
+      "latencyMs": 771
+    },
+    {
+      "name": "Bilingual topic summary",
+      "status": "PASS",
+      "pt": "Jogadores em inglês comentam sobre o jogo e expressam diversão com emojis.",
+      "en": "Portuguese speaker greets, tags a user, uses a meme, and shares a link."
+    }
+  ],
+  "translatorSourceSHA256": "05e00e7b9110680cf2a0d81d50571b101b5124def75920a4740d75b51dab5523"
+}

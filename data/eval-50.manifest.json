@@ -1,0 +1,17 @@
+{
+  "name": "Ponte synthetic PT to EN evaluation v1",
+  "created": "2026-10-28",
+  "author": "Codex, in session 01a1829a-60b5-7f91-b903-27adbd1d91a8",
+  "rows": 50,
+  "source": "Newly authored synthetic chat, not real Twitch messages",
+  "references": "One English reference per Portuguese message, authored with the inputs",
+  "translatorSourceSHA256BeforeDataset": "05e00e7b9110680cf2a0d81d50571b101b5124def75920a4740d75b51dab5523",
+  "policy": "Do not edit the translator or glossary in response to these scores. Use a separate development set for changes; any retest on this set must disclose prior exposure.",
+  "limits": [
+    "The dataset author also authored the implementation and has seen the glossary; this is not a blind or independently authored benchmark.",
+    "The 50 messages and references were written before their first evaluation run; no scoring feedback was used to revise them.",
+    "All examples are PT to EN. This dataset cannot establish EN to PT quality.",
+    "Single-reference character overlap cannot establish semantic accuracy or naturalness; independent bilingual human review remains pending.",
+    "Synthetic channel emote IDs are placeholders for fragment-preservation tests, not actual CDN image IDs."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "session_id": "01a1829a-60b5-7f91-b903-27adbd1d91a8",
+  "sources": [
+    "CODEX_SESSION_ID",
+    "CODEX_THREAD_ID"
+  ],
+  "observed_at": "2026-10-28T13:28:30.946Z",
+  "method": "Read actual process environment; no ID generated and no mock payload used."
+}

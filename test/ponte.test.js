@@ -75,7 +75,7 @@ test('local fixture serves overlay, SSE and protected moderation controls', asyn
   const hidden=await fetch(`${app.address}/hide`,{method:'POST',headers:{'Content-Type':'application/json',Origin:app.address},body:'{"id":"synthetic-0"}'}); assert.equal(hidden.status,204);assert.equal(app.pipeline.lines.length,0);
   assert.equal((await fetch(`${app.address}/.ponte-token.json`)).status,404);
 });
-test('evaluation reports absent providers honestly', async () => { assert.equal(chrF('hello','hello'),100);assert.equal(chrF('abc','xyz'),0);const r=await evaluate(undefined,{apiKey:''});assert.equal(r.rows,5);assert.match(r.reports[0].status,/NOT RUN/);assert.equal(r.reports[3].samples,5);assert.equal(r.reports[3].emotesKept,1); });
+test('evaluation reports absent providers honestly', async () => { assert.equal(chrF('hello','hello'),100);assert.equal(chrF('abc','xyz'),0);const r=await evaluate(undefined,{apiKey:''});assert.equal(r.rows,50);assert.match(r.reports[0].status,/NOT RUN/);assert.equal(r.reports[3].samples,50);assert.equal(r.reports[3].emotesKept,1); });
 test('device authorization polls pending, slows down and saves successful token', async () => {
   const delays=[]; let polls=0,saved;
   await authenticate({clientId:'mock',wait:async ms=>delays.push(ms),log:()=>{},persist:async token=>saved=token,fetcher:async url=>{
